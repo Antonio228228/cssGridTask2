@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    text-transform: uppercase;
+}
+
+.container {    /*nazvanija classov s to4koi*/
+    display: grid; /*setka dlja mobilnoi verstki*/
+    color: white;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 100px 200px 150px 150px 100px;
+    grid-template-areas: 
+    "head menu menu menu"
+    "hero hero hero hero"
+    "main svoe svoe image"
+    "main main svoe extra"
+    "banner banner banner banner";
+
+}
+
+.container > * {  /*vse elementi vnutri containera*/
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+.header {
+    background-color: slateblue;
+    grid-area: head;  /*prosto nazvanie*/
+}
+
+.menu {
+    background-color: aqua;
+    grid-area: menu;
+}
+
+.hero {
+    background-color: cadetblue;
+    grid-area: hero;
+}
+
+.main{
+    background-color: cornflowerblue;
+    grid-area: main;
+}
+
+.banner{
+    background-color: purple;
+    grid-area: banner;
+}
+.extra {
+    background-color: darkorchid;
+    grid-area: extra;
+}
+.image {
+    background-color: darkorchid;
+    grid-area: image;
+}
+.svoe {
+    background-color: black;
+    grid-area: svoe;
+}
+
+@media (max-width: 550px){  /*esli razmer devica do 550px*/
+    .container{
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "head"
+        "menu"
+        "hero"
+        "main"
+        "banner"
+        "extra"
+        "image"
+        ;
+        grid-template-rows: 500px 100px 300px 300px 150px 150px;
+    }
+    
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 300px 600px 250px 250px;
+        grid-template-areas: 
+        "head head head head"
+        "hero hero hero hero"
+        "menu main main main"
+        "menu banner banner banner"
+        "menu extra image";
+    }
+}
